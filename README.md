@@ -1,5 +1,5 @@
 # EDE-Enhanced
-## Version 1.0
+## Version 1.1
  Ed-E Enhanced. With animated face, Stealth module and Improved Dialogue
 
  ## Long Description
@@ -13,6 +13,7 @@
 - [Yukichigai Unofficial Patch - YUP](https://www.nexusmods.com/newvegas/mods/51664)
 - [New Vegas Script Extender - NVSE](http://nvse.silverlock.org/)
 - [JIP LN NVSE Plugin](https://www.nexusmods.com/newvegas/mods/58277)
+- [NV Animated EDE Face by AmaccurzerO](https://www.nexusmods.com/newvegas/mods/66625)
 
 ## Credits
 **Source Mods:**
@@ -38,7 +39,8 @@
 3. Enable the Mod.
 ### Manual
 1. Place the files in your "Data" folder,
-2. Enable the plugin.
+2. Click "Yes" on Override prompts
+3. Enable the plugin.
 
 ### Optional
 When using the Optional JIP CCC Plugin:  
