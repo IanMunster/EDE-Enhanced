@@ -40,14 +40,10 @@ Place the files in your "Data" folder,
 Enable the plugin.
 
 ### Optional
-When using the Optional JIP CCC Plugin:
-**Required:** [JIP Companions Command and Control](https://www.nexusmods.com/newvegas/mods/50468)
-(Manual Installation)
-<<<<<<< HEAD
-Override the "ED-E Enhanced.esp" plugin with the plugin found in the "Optional" Folder
-=======
- Override the "ED-E Enhanced.esp" plugin with the plugin found in the "Optional" Folder
->>>>>>> parent of a0dbbf6... Update README.md
+When using the Optional JIP CCC Plugin:  
+**Required:** [JIP Companions Command and Control](https://www.nexusmods.com/newvegas/mods/50468)  
+(Manual Installation)  
+Override the "ED-E Enhanced.esp" plugin with the plugin found in the "Optional" Folder  
 
 ## Compatibility
 Not compatible with other ED-E mods, but if asked nice I could make a patch!
