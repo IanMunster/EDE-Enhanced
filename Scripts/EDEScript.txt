@@ -16,19 +16,19 @@ int bSameCell					; Set to 1 if the player is in the same cell as a log blocker.
 ref rTempEDERef
 
 Begin OnLoad
-	if (This != EDEQuest.rEdeRef)
-		if (This == EDE3Ref)
-			set EDEQuest.rEdeRef to EDE3Ref
-		elseif (This == EDE2Ref)
-			set EDEQuest.rEdeRef to EDE2Ref
-		else
-			set EDEQuest.rEdeRef to EDE1Ref
-		endif
-	endif
-	set rTempEDERef to EDEQuest.rEdeRef
+	if (This != EDEQuest.rEdeRef)																; If the Current ED-E Ref is not saved in Ref Variable
+		if (This == EDE3Ref)																	; If Current ED-E is Upgraded EDE 3
+			set EDEQuest.rEdeRef to EDE3Ref														; Set Ref Variable to Upgraded EDE 3
+		elseif (This == EDE2Ref)																; If Current ED-E is Upgraded EDE 2
+			set EDEQuest.rEdeRef to EDE2Ref														; Set Ref Variable to Upgraded EDE 2
+		else																					; Otherwise Not EDE 2 or 3
+			set EDEQuest.rEdeRef to EDE1Ref														; Set Ref Variable to EDE 1
+		endif																					;
+	endif																						;
+	set rTempEDERef to EDEQuest.rEdeRef															; Set the Temp Ref to Current EDE
 End
 
-;-- INGAME ------------------------------------------------------------------------------------------------------------------------------------
+;-- INGAME -------------------------------------------------------------------------------------
 Begin GameMode
 	if iRadioConversation == 1 && This == EDE1Ref
 		EDERadioREF.Enable
@@ -42,19 +42,19 @@ Begin GameMode
 	elseif bSameCell == 1 && rLogBlocker.GetInSameCell Player == 0
 		set bSameCell to 0
 	endif
-	if (Player.isSneaking == 1) && (IsInCombat == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 0) 	;// STEALTH
-		AddSpell StealthBoyInvisibilitySpell
-		set EDEQuest.bIsCloaked to 1
-	elseif (Player.isSneaking == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 1)
-		RemoveSpell StealthBoyInvisibilitySpell
-		set EDEQuest.bIsCloaked to 0
-	elseif (IsInCombat) && (EDEQuest.bIsCloaked == 1)
-		RemoveSpell StealthBoyInvisibilitySpell
-		set EDEQuest.bIsCloaked to 0
+	if (Player.isSneaking == 1) && (IsInCombat == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 0) 		; If player is sneaking, EDE is not in combat, has an active StealthModule and is not currently cloaked
+		AddSpell StealthBoyInvisibilitySpell																					; Add Invisibility Effect
+		set EDEQuest.bIsCloaked to 1																							; Set ED-E is Cloaked to true
+	elseif (Player.isSneaking == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 1)						; Otherwise is player is NOT sneaking, EDE has an active StealthModule and IS cloaked
+		RemoveSpell StealthBoyInvisibilitySpell																					; Uncloak ED-E -or- Make him visible
+		set EDEQuest.bIsCloaked to 0																							; Set ED-E is Cloaked to false
+	elseif (IsInCombat) && (EDEQuest.bIsCloaked == 1)																			; Otherwise if EDE is in Combat, and EDE is Cloaked
+		RemoveSpell StealthBoyInvisibilitySpell																					; Uncloak ED-E -or- Make him visible
+		set EDEQuest.bIsCloaked to 0																							; Set ED-E is Cloaked to false
 	endif
-	
-	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)	;// ANIMATE
-		Call EDEAnimateScript rTempEDERef
+																								; Animate ED-E's face during Gameplay
+	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)										; If there is and ED-E reference and ED-E Animation is not called
+		Call EDEAnimateScript rTempEDERef														; Call ED-E Animation Script, on the current ED-E reference
 	endif
 	
 	if (OnceOnly == 1)
@@ -75,13 +75,13 @@ Begin SayToDone EDEStatic
 End
 
 
-Begin MenuMode 1009 	;// ANIMATE In Dialogue
-	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)
-		Call EDEAnimateScript rTempEDERef
+Begin MenuMode 1009 																			; Animate ED-E's face In Dialogue
+	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)										; If there is and ED-E reference and ED-E Animation is not called
+		Call EDEAnimateScript rTempEDERef														; Call ED-E Animation Script, on the current ED-E reference
 	endif
 End
 
-;-- DEATH ------------------------------------------------------------------------------------------------------------------------------------
+;-- DEATH --------------------------------------------------------------------------------------
 Begin OnDeath
 	if VNPCFollowers.bEDEHired == 1
 		set VNPCFollowers.nCurrentFollowers to VNPCFollowers.nCurrentFollowers - 1;
@@ -98,17 +98,17 @@ Begin OnDeath
 	if GetQuestCompleted vDialogueEDE == 0
 		SetStage vDialogueEDE 100
 	endif
-	if (EDEQuest.bStealthModuleActive == 1) 		;// STEALTH
-		RemoveSpell StealthBoyInvisibilitySpell
-		set EDEQuest.bIsCloaked to 0
+	if (EDEQuest.bStealthModuleActive == 1) 													; If ED-E is Dead and has an Active Stealth Module
+		RemoveSpell StealthBoyInvisibilitySpell													; Uncloak ED-E -or- Make him visible
+		set EDEQuest.bIsCloaked to 0															; Set ED-E is Cloaked to false
 	endif
 End
 
-;-- COMBAT -----------------------------------------------------------------------------------------------------------------------------------
+;-- COMBAT -------------------------------------------------------------------------------------
 Begin OnStartCombat
-	if (EDEQuest.bIsCloaked == 1)
-		RemoveSpell StealthBoyInvisibilitySpell
-		set EDEQuest.bIsCloaked to 0
+	if (EDEQuest.bIsCloaked == 1)																; If ED-E is in Combat, and ED-E is Cloaked
+		RemoveSpell StealthBoyInvisibilitySpell													; Uncloak ED-E -or- Make him visible
+		set EDEQuest.bIsCloaked to 0															; Set ED-E is Cloaked to false
 	endif
 End
 
@@ -121,9 +121,9 @@ Begin OnCombatEnd
 		restoreav leftmobilitycondition 100
 		restoreav rightattackcondition 100
 		restoreav rightmobilitycondition 100
-		if (Player.isSneaking == 1) && (EDEQuest.bStealthModuleActive == 1)	 ;// STEALTH
-			AddSpell StealthBoyInvisibilitySpell
-			set EDEQuest.bIsCloaked to 1
+		if (Player.isSneaking == 1) && (EDEQuest.bStealthModuleActive == 1)	 					; On End of Combat, if player is sneaking and Stealth module is active
+			AddSpell StealthBoyInvisibilitySpell												; Add the invisibility spell, ED-E becomes invisible
+			set EDEQuest.bIsCloaked to 1														; Set ED-E is Cloaked to true
 		endif
 	endif
 End
