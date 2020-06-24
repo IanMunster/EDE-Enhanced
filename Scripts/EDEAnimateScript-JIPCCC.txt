@@ -12,11 +12,11 @@ Begin Function { rCurrEdeRef }
 	elseif (IsInCombat)
 		SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExMadFaceA"
 		SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExMadFaceC"
-	elseif (EDEQuest.bIsCloaked == 1) && (bHasFacePlate == 1)	;// Remove FacePlate when Invisible
+	elseif (EDEQuest.bIsCloaked == 1) && (bHasFacePlate == 1)
 		rCurrEdeRef.ToggleCreatureModel "AnimEDExFaceA.nif" 0
 		rCurrEdeRef.Update3D
 		set bHasFacePlate to 0
-	elseif (EDEQuest.bIsCloaked == 0) && (bHasFacePlate == 0)	;// Add FacePlate when NOT Invisible
+	elseif (EDEQuest.bIsCloaked == 0) && (bHasFacePlate == 0)
 		rCurrEdeRef.ToggleCreatureModel "AnimEDExFaceA.nif" 1
 		rCurrEdeRef.Update3D
 		set bHasFacePlate to 1

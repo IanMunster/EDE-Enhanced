@@ -15,6 +15,6 @@ Begin GameMode
 		set bIsCloaked to 0
 		set iOnceOnly to 1
 	endif
-	Print "EDE Enhanced is Loaded" 	;// Debug
+	Print "EDE Enhanced is Loaded"
 	StopQuest EDEQuest
 End
