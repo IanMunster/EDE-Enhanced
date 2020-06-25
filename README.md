@@ -7,7 +7,7 @@
  This mod adds a Animated face to ED-E based on the mod by AmaccurzerO, but with a whole lot of new faces, that animate during Gameplay and Dialogue.  
  ED-E also has a stealth module, wich can only be activated if the player has 8 perception, ## science or ## repair skill. 
  Also all of ED-E's dialogue text and subtitles have been made consistent with the dialogue found in the "Lonesome Roads" DLC, giving it more personality.  
- Instead of repeatingly saying "<Makes beeping sounds>" ED-E will say stuff like "<Happy beeping>" or "<Stealthy beeping>".  
+ Instead of repeatingly saying "Makes beeping sounds" ED-E will say stuff like "Happy beeping" or "Stealthy beeping".  
  And ED-E have been given a fix so he no longer triggers traps. He is 10% small, so he can more easely fit through doors and other minor bugfixes.  
 
 ## Requirements
