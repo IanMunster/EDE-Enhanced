@@ -1,0 +1,20 @@
+PLAYERFIREWEAPON "PLAYER FIRE WEAPON"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A001 "{Deny Beep}<Defiant beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 9 ;no
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+:------------------------------------------------------------------------------------------------:
+PLAYERINIRONSITES "PLAYER IN IRON SITES"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A00A "{Deny Beep}<Defiant beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 9 ;no
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0

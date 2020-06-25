@@ -1,0 +1,34 @@
+GREETING "GREETING"
+:-----------------------------------------------------------------------------:
+	-> 001579D7 "{Curious Beep}<Curious beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 14 ;curious
+enableplayercontrols
+RemoveScriptPackage EDEDialoguePackage
+
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+:-----------------------------------------------------------------------------:
+	-> 001579D8 "{Happy Beep}<Happy beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:-----------------------------------------------------------------------------:
+GOODBYE "Goodbye."
+:-----------------------------------------------------------------------------:
+	-> 001579CE "{Goodbye Beep}<Goodbye beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 2 ;bye happy
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+

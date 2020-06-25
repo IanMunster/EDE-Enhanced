@@ -1,0 +1,76 @@
+EDEEndLog "<Log Playback::End>"
+:------------------------------------------------------------------------------------------------:
+	-> 00157F16 "{Confirmation Beep}<Confirmatory beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 1 ;confirm
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDEContinueLog1 "<Log Playback::Continue>"
+:------------------------------------------------------------------------------------------------:
+	-> 00157F18 "Eyebot Duraframe Subject E ..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 16 ;holotape
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDELog1 "EDEChatter"
+:------------------------------------------------------------------------------------------------:
+	-> 00157F17 "Subject E: Diagnosis complete. Begin Recording."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 16 ;holotape
+set vDialogueEDE.iLogsPlayed to 1
+addtopic EDELog1
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+vDialogueEDENVCompanionEdETopic000 "<Log Playback::Continue>"
+:------------------------------------------------------------------------------------------------:
+	-> 0015882A "Please handle this information ..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 16 ;holotape
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDELog2 "EDEChatter2"
+:------------------------------------------------------------------------------------------------:
+	-> 00158829 "Download Complete. Begin Recording."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 16 ;holotape
+set vDialogueEDE.iLogsPlayed to 2
+addtopic EDELog2
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+vDialogueEDETopic000 "<Log Playback::Continue>"
+:------------------------------------------------------------------------------------------------:
+	-> 00158828 "If you are listening ..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 16 ;holotape
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:

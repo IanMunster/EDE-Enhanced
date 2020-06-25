@@ -1,0 +1,87 @@
+EDEStatic "EDEStatic"
+:------------------------------------------------------------------------------------------------:
+	-> 0015FC74 "<Static>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 20 ;static
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDERadioConversation "EDERadioConversation"
+:------------------------------------------------------------------------------------------------:
+	-> 0015F8D5 "Uh... Hello? Hi...."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 17 ;radio
+disableplayercontrols
+set vdialogueEDE.iEDERadio to 0
+
+(DIALOGUE SCRIPT END)
+set EDE1Ref.iRadioConversation to 1
+setobjectivecompleted vDialogueEDE 5 1
+setobjectivedisplayed vDialogueEDE 15 1
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+	-> 0015FC76 "Hi, sorry to break in,..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 17 ;radio
+enableplayercontrols
+VFSEDEScientistRef.Enable
+
+(DIALOGUE SCRIPT END)
+setobjectivedisplayed vDialogueEDE 7 1
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDERadioConversation4 "EDERadioConversation4"
+:------------------------------------------------------------------------------------------------:
+	-> 0015FF66 "Hi there, my name is April..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 17 ;radio
+VFSEDEScientistRef.Enable
+set vdialogueEDE.iEDERadio to 0
+
+(DIALOGUE SCRIPT END)
+setobjectivedisplayed vDialogueEDE 7 1
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDERadioConversation3 "EDERadioConversation3"
+:------------------------------------------------------------------------------------------------:
+	-> 0015FF65 "Hi there, my name is April..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 17 ;radio
+VFSEDEScientistRef.Enable
+set vdialogueEDE.iEDERadio to 0
+
+(DIALOGUE SCRIPT END)
+setobjectivedisplayed vDialogueEDE 7 1
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+EDERadioConversation2 "EDERadioConversation"
+:------------------------------------------------------------------------------------------------:
+	-> 0015FF67 "Uh... Hello? Hi. ..."
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 17 ;radio
+set vdialogueEDE.iEDERadio to 0
+
+(DIALOGUE SCRIPT END)
+setobjectivecompleted vDialogueEDE 5 1
+setobjectivedisplayed vDialogueEDE 10 1
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:

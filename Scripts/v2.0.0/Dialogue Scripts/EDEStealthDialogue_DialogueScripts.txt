@@ -1,0 +1,36 @@
+EdEStealthDialogue "What is this panel for?"
+:------------------------------------------------------------------------------------------------:
+	-> ##001376 "{Curious Beep}<Curious beeping>"
+	-> ##001377 "{Curious Beep}<Curious beeping>"
+	-> ##00165A "{Curious Beep}<Curious beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 14 ;curious
+
+(DIALOGUE SCRIPT END)
+showmessage EDEStealthFoundMSG
+set EDEQuest.bStealthModuleFound to 1
+set EDEQuest.bStealthModuleActive to 0
+set EDEQuest.iDialogueIndex to 0
+
+:------------------------------------------------------------------------------------------------:
+	-> ##001378 "{Sonar Beep}<Sneaky beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 19 ;sneak
+
+(DIALOGUE SCRIPT END)
+showmessage EDEStealthOnMSG
+set EDEQuest.bStealthModuleActive to 1
+set EDEQuest.iDialogueIndex to 0
+
+:------------------------------------------------------------------------------------------------:
+	-> ##00165A "{Homing Beep}<Unsneaky beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 15 ;follow
+
+(DIALOGUE SCRIPT END)
+showmessage EDEStealthOffMSG
+set EDEQuest.bStealthModuleActive to 0
+set EDEQuest.iDialogueIndex to 0

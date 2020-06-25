@@ -1,0 +1,12 @@
+[EDITOR ID] "[NAME]"
+:------------------------------------------------------------------------------------------------:
+	-> [FORM ID] "[NAME]"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to #
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:

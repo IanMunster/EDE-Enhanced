@@ -1,0 +1,483 @@
+FollowersWait "Wait here."
+:------------------------------------------------------------------------------------------------:
+	-> 001579BC "{Helpfull Beep}<Brave beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 4 ;helpfull
+set EDE1REF.Waiting to 1 ;
+set EDE2REF.Waiting to 1 ;
+set EDE3REF.Waiting to 1
+EDE1REF.evp
+EDE2REF.evp
+EDE3REF.evp
+set VNPCFollowers.fFollowerWaitingLeaveDay to  (GameDaysPassed + FollowerWaitTime)
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTrade "Let's trade equipment."
+:------------------------------------------------------------------------------------------------:
+	-> 001579CF "{Helpfull Beep}<Helpfull beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 4 ;helpfull
+OpenTeammateContainer
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsEnd "Enough about tactics."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D6 {Confirmation Beep}<Confirmatory beeping>
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 1 ;confirm
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsDistanceLong "Keep your distance. Try to flank them."
+:------------------------------------------------------------------------------------------------:
+	-> 001579BF "{Homing Beep}<Tactical beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 15 ;follow
+Set EDE1REF.IsFollowingLong to 1
+Set EDE2REF.IsFollowingLong to 1
+Set EDE3REF.IsFollowingLong to 1
+Set EDE1REF.IsFollowingDefault to 0
+Set EDE2REF.IsFollowingDefault to 0
+Set EDE3REF.IsFollowingDefault to 0
+EDE1Ref.evp
+EDE2Ref.evp
+EDE3Ref.evp
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsDistanceGOODBYE "All right, you're good. Let's get out of here."
+:------------------------------------------------------------------------------------------------:
+	-> 001579CA "{Yes Beep}<Acceptive beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 7 ;yes
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsDistanceEND "Your distance is good. Let's talk about something else."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D3 "{Confirmation Beep}<Confirmatory beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 1 ;confirm
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsDistanceDefault "Stay close to me."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D2 "{Homing Beep}<Tactical beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 15 ;follow
+set EDE1REF.IsFollowingDefault to 1
+set EDE2REF.IsFollowingDefault to 1
+set EDE3REF.IsFollowingDefault to 1
+set EDE1REF.IsFollowingLong to 0
+set EDE2REF.IsFollowingLong to 0
+set EDE3REF.IsFollowingLong to 0
+EDE1REF.evp
+EDE2REF.evp
+EDE3REF.evp
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsDistance "Let's talk about how close you're following me."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C0 "{Homing Beep}<Tactical beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 15 ;follow
+
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatRanged "I want you to use ranged weapons."
+:------------------------------------------------------------------------------------------------:
+	-> 001579CB "{Confirmation Beep}<Confirmatory beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 1 ;confirm
+EDE1REF.SetCombatStyle FollowersCombatStyleRanged
+EDE2REF.SetCombatStyle FollowersCombatStyleRanged
+EDE3REF.SetCombatStyle FollowersCombatStyleRanged
+set EDE1REF.CombatStyleRanged to 1
+set EDE2REF.CombatStyleRanged to 1
+set EDE3REF.CombatStyleRanged to 1
+set EDE1REF.CombatStyleMelee to 0
+set EDE2REF.CombatStyleMelee to 0
+set EDE3REF.CombatStyleMelee to 0
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+	-> 001579CC "{Combat Beep}<Tactical combat beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 12 ;combat
+EDE1REF.SetCombatStyle FollowersCombatStyleRanged
+EDE2REF.SetCombatStyle FollowersCombatStyleRanged
+EDE3REF.SetCombatStyle FollowersCombatStyleRanged
+set EDE1REF.CombatStyleRanged to 1
+set EDE2REF.CombatStyleRanged to 1
+set EDE3REF.CombatStyleRanged to 1
+set EDE1REF.CombatStyleMelee to 0
+set EDE2REF.CombatStyleMelee to 0
+set EDE3REF.CombatStyleMelee to 0
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatMelee "Switch to a melee weapon."
+:------------------------------------------------------------------------------------------------:
+	-> 001579BD "{Laugh Beep}<Humorous beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 5 ;laugh
+EDE1REF.SetCombatStyle FollowersCombatStyleMelee
+EDE2REF.SetCombatStyle FollowersCombatStyleMelee
+EDE3REF.SetCombatStyle FollowersCombatStyleMelee
+set EDE1REF.CombatStyleRanged to 0
+set EDE2REF.CombatStyleRanged to 0
+set EDE3REF.CombatStyleRanged to 0
+set EDE1REF.CombatStyleMelee to 1
+set EDE2REF.CombatStyleMelee to 1
+set EDE3REF.CombatStyleMelee to 1
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+	-> 001579BE "{Failed Beep}<Failure beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 21 ;fail
+EDE1REF.SetCombatStyle FollowersCombatStyleMelee
+EDE2REF.SetCombatStyle FollowersCombatStyleMelee
+EDE3REF.SetCombatStyle FollowersCombatStyleMelee
+set EDE1REF.CombatStyleRanged to 0
+set EDE2REF.CombatStyleRanged to 0
+set EDE3REF.CombatStyleRanged to 0
+set EDE1REF.CombatStyleMelee to 1
+set EDE2REF.CombatStyleMelee to 1
+set EDE3REF.CombatStyleMelee to 1
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatEND "Let's talk about something else."
+:------------------------------------------------------------------------------------------------:
+	-> 001579CD "{Yes Beep}<Acceptive beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 7 ;yes
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatGOODBYE "That's all. Let's get going."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C1 "{Confirmation Beep}<Confirmatory beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 1 ;confirm
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombat "I want you to change your combat style."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C4 "{Combat Beep}<Tactical combat beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 12 ;combat
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTactics "Let's talk about your tactics."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D5 "{Tactics Beep}<Tactical beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 15 ;follow
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersLetsGo "Let's get going."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D4 "{Happy Beep}<Happy beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+
+(DIALOGUE SCRIPT END)
+set EDE1REF.Waiting to 0 ;
+set EDE2REF.Waiting to 0 ;
+set EDE3REF.Waiting to 0 ;
+EDE1REF.evp ;
+EDE2REF.evp ;
+EDE3REF.evp ;
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersFired "It's time for us to part ways."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C6 "{Curious Beep}<Curious beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 14 ;curious
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersHired "I think we should travel together."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C2 "{Bye Sad Beep}<Sad goodbye beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 22 ;byeSad
+
+(DIALOGUE SCRIPT END)
+showmessage FollowerMessageOneFollower
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+	-> 001579C3 "{Happy Beep}<Hello beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+If ( EDE1REF.Waiting == 1 && EDE1REF.GetDisabled == 0 )
+     Set EDE1REF.Waiting to 0
+Endif
+If ( EDE2REF.Waiting == 1 && EDE2REF.GetDisabled == 0 )
+     Set EDE2REF.Waiting to 0
+Endif
+If ( EDE3REF.Waiting == 1 && EDE3REF.GetDisabled == 0 )
+     Set EDE3REF.Waiting to 0
+Endif
+IgnoreCrime 1
+set VNPCFollowers.bPlayerHasFollower to 1
+set VNPCFollowers.bEDEHired to 1
+set VNPCFollowers.bEDEFired to 0
+set VNPCFollowers.bCritterInParty to 1
+addperk CompanionSuite
+player.addperk EnhancedSensors
+set EDE1REF.CombatStyleRanged to 1
+set EDE2REF.CombatStyleRanged to 1
+set EDE3REF.CombatStyleRanged to 1
+set EDE1REF.CombatStyleMelee to 0
+set EDE2REF.CombatStyleMelee to 0
+set EDE3REF.CombatStyleMelee to 0
+set VNPCFollowers.nCurrentFollowers to (VNPCFollowers.nCurrentFollowers + 1)
+setCS FollowersCombatStyleRanged
+AddToFaction FollowerFaction 1
+SetPlayerTeammate 1
+SetFactionRank TeammateFaction 1
+evp
+SIFH 1
+
+(DIALOGUE SCRIPT END)
+showmessage FollowerMessagePerkEDEAdd
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersFiredNo "On second thought, stick with me for a little longer."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C7 "{Happy Beep}<Happy Beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersFiredYes "Yes, I'm sure."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C5 "{Sad Beep}<Sad beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 23 ;sad
+set EDE1REF.Waiting to 0;
+set EDE2REF.Waiting to 0;
+set EDE3REF.Waiting to 0;
+set VNPCFollowers.bEDEHired to 0
+set VNPCFollowers.bEDEFired to 1
+set VNPCFollowers.bCritterInParty to 0
+SetPlayerTeammate 0
+RemoveFromFaction FollowerFaction
+set VNPCFollowers.nCurrentFollowers to (VNPCFollowers.nCurrentFollowers - 1)
+if VNPCFollowers.nCurrentFollowers == 0
+     set VNPCFollowers.bPlayerHasFollower to 0
+endif
+removeperk CompanionSuite
+player.removeperk EnhancedSensors
+setAV Aggression 0
+ResetAI
+set vNPCFollowers.bEDEL38 to 0
+
+(DIALOGUE SCRIPT END)
+EDE1REF.MoveToMarkerWithFade EDEHomeMarker
+EDE2REF.MoveToMarkerWithFade EDEHomeMarker
+EDE3REF.MoveToMarkerWithFade EDEHomeMarker
+showmessage FollowerMessageLeaveEDE
+showmessage FollowerMessagePerkEDERemove
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersAcknowledgeMyOrder "FollowersAcknowledgeMyOrder"
+:------------------------------------------------------------------------------------------------:
+	-> 001579D1 "{Yes Beep}<Acceptive beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 7 ;yes
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatPassive "I want you not to attack enemies unless I've already engaged them."
+:------------------------------------------------------------------------------------------------:
+	-> 001579D0 "{Helpfull Beep}<Agreed beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 4 ;helpfull
+set EDE1REF.FollowerSwitchAggressive to 0
+set EDE2REF.FollowerSwitchAggressive to 0
+set EDE3REF.FollowerSwitchAggressive to 0
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersTacticsCombatAggressive "I want you to attack enemies the moment you see them."
+:------------------------------------------------------------------------------------------------:
+	-> 001579C8 "{Combat Beep}<Tactical combat beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 12 ;combat
+set EDE1Ref.FollowerSwitchAggressive to 1
+set EDE2REF.FollowerSwitchAggressive to 1
+set EDE3REF.FollowerSwitchAggressive to 1
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+	-> 001579C9 "{Alert Beep}<Alert beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 18 ;seek
+set EDE1Ref.FollowerSwitchAggressive to 1
+set EDE2REF.FollowerSwitchAggressive to 1
+set EDE3REF.FollowerSwitchAggressive to 1
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersFiredYesSuite "I'd like you to go back to the Lucky 38 for now."
+:------------------------------------------------------------------------------------------------:
+	-> 001579DA "{Bye Happy Beep}<Goodbye beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 2 ;byeHappy
+set EDE1REF.Waiting to 0;
+set EDE2REF.Waiting to 0;
+set EDE3REF.Waiting to 0;
+set VNPCFollowers.bEDEHired to 0
+set VNPCFollowers.bEDEFired to 1
+set VNPCFollowers.bCritterInParty to 0
+SetPlayerTeammate 0
+RemoveFromFaction FollowerFaction
+;SetAV Assistance 0
+set VNPCFollowers.nCurrentFollowers to (VNPCFollowers.nCurrentFollowers - 1)
+if VNPCFollowers.nCurrentFollowers == 0
+     set VNPCFollowers.bPlayerHasFollower to 0
+endif
+removeperk CompanionSuite
+player.removeperk EnhancedSensors
+setAV Aggression 0
+ResetAI
+set vNPCFollowers.bEDEL38 to 1
+
+(DIALOGUE SCRIPT END)
+EDE1REF.MoveToMarkerWithFade L38SuiteCompanionMarker01REF
+EDE2REF.MoveToMarkerWithFade L38SuiteCompanionMarker01REF
+EDE3REF.MoveToMarkerWithFade L38SuiteCompanionMarker01REF
+showmessage FollowerMessagePerkEDERemove
+showmessage FollowerMessageLeaveEDE38
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+FollowersStealthing "FollowersStealthing"
+:------------------------------------------------------------------------------------------------:
+	-> 08000811 "{No Sound}<Sneaky beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 19 ;sneak
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+

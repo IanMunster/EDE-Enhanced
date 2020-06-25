@@ -1,0 +1,128 @@
+NVDLC04DialogueEDENVDLC04EDETopic081 "I'm running low on Small Energy Cells. Can you make me more?"
+:------------------------------------------------------------------------------------------------:
+	-> 0400A6E4 "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+If (NVDLC04GenericPerkQUEST.nRepairCheck < 2)
+     Player.AddItem AmmoSmallEnergyCell 20;
+Else
+     Player.AddItem AmmoSmallEnergyCell 35;
+EndIf
+Set NVDLC04GenericPerkQuest.bCamaraderEHourlyEnergyCells to 1;
+Player.CastImmediateOnSelf NVDLC04EDETimer;
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic080 "I need some Microfusion Cells. Can you make some?"
+:------------------------------------------------------------------------------------------------:
+	-> 0400A6E7 "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+If (NVDLC04GenericPerkQUEST.nRepairCheck < 2)
+     Player.AddItem AmmoMicrofusionCell 20;
+Else
+     Player.AddItem AmmoMicrofusionCell 35;
+EndIf
+Set NVDLC04GenericPerkQuest.bCamaraderEHourlyEnergyCells to 1;
+Player.CastImmediateOnSelf NVDLC04EDETimer;
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic078 "Can you repair my weapon?"
+:------------------------------------------------------------------------------------------------:
+	-> 0400A6E5 "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+set GameSetting.FloatVar1 to Player.GetWeaponHealthPerc
+set GameSetting.FloatVar2 to GameSetting.FloatVar1
+PlaySound UIRepairWeapon;
+If (NVDLC04GenericPerkQUEST.nRepairCheck == 0)
+     set GameSetting.FloatVar1 to GameSetting.FloatVar1 + 25
+Else
+     set GameSetting.FloatVar1 to GameSetting.FloatVar1 + 35
+     ;Player.ModWeaponHealthPerc 35;
+EndIf
+if GameSetting.FloatVar1 > 100
+     set GameSetting.FloatVar1 to 100
+endif
+Player.setWeaponHealthPerc GameSetting.FloatVar1
+;//== Fix weapon repair for weapons with a durability mod
+if Player.GetWeaponHealthPerc < (GameSetting.FloatVar1 - 1) && Player.GetWeaponHealthPerc != GameSetting.FloatVar2
+     set GameSetting.ShortVar1 to (GameSetting.FloatVar1 * 1.5)
+     Player.setWeaponHealthPerc GameSetting.ShortVar1
+endif
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic082 "Let me access your multitools. I want to make something."
+:------------------------------------------------------------------------------------------------:
+	-> 0400D30C "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+player.showrecipemenu WorkbenchRecipes
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic077 "I'd like to make some ammo. Can you help me?"
+:------------------------------------------------------------------------------------------------:
+	-> 0400A86A "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+player.showrecipemenu ReloadingBenchRecipes
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic137 "I don't need energy cells right now - I'd like some satchel charges, ED-E."
+:------------------------------------------------------------------------------------------------:
+	-> 0400D0A1 "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+Player.AddItem NVDLC04WeapSatchelCharge 3;
+Set NVDLC04GenericPerkQuest.bCamaraderEHourlyEnergyCells to 1;
+Player.CastImmediateOnSelf NVDLC04EDETimer;
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NVDLC04DialogueEDENVDLC04EDETopic136 "Can you make me some flamer fuel instead of energy cells?"
+:------------------------------------------------------------------------------------------------:
+	-> [FORM ID] "{Craft Beep}<Crafting beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 13 ;craft
+
+(DIALOGUE SCRIPT END)
+If (NVDLC04GenericPerkQUEST.nExplosivesCheck == 0)
+     Player.AddItem AmmoFlamerFuel 20;
+Else
+     Player.AddItem AmmoFlamerFuel 35;
+EndIf
+Set NVDLC04GenericPerkQuest.bCamaraderEHourlyEnergyCells to 1;
+Player.CastImmediateOnSelf NVDLC04EDETimer;
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:

@@ -1,0 +1,204 @@
+Attack "Attack"
+:------------------------------------------------------------------------------------------------:
+	-> 00158976 "{Angry Beep}<Aggressive beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 8 ;angry
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+Flee "Flee"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A009 "{Panic Beep}<Panic beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 10 ;panic
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+AcceptYield "AcceptYield"
+:------------------------------------------------------------------------------------------------:
+	-> 00158978 "{Triumphant Beep}<Triumphant beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 6 ;triumph
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+Assault "Assault"
+:------------------------------------------------------------------------------------------------:
+	-> 00158975 "{Alert Beep}<Alert beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 18 ;seek
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+AvoidThreat "AvoidThreat"
+:------------------------------------------------------------------------------------------------:
+	-> 00158977 "{Sonar Beep}<Sneaky beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 19 ;sneak
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NormalToCombat "StartCombat"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A005 "{Angry Beep}<Aggressive beeping>"
+	
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 8 ;angry
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+Death "Death"
+:------------------------------------------------------------------------------------------------:
+	-> 0015897C "{ED-E Death Sound}<Critical failure beep>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 24 ;dead
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+AlertToCombat "AlertToCombat"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A007 "{Angry Beep}<Aggressive beeping>"
+	
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 8 ;angry
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NormalToAlert "NormalToAlert"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A000 "{Alert Beep}<Alert beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 18 ;seek
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+AlertToNormal "AlertToNormal"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A006 "{Happy Beep}<Relieved beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+CombatToNormal "CombatToNormal"
+:------------------------------------------------------------------------------------------------:
+	-> 00159FFF "{Triumph Beep}<Triumphant beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 6 ;triumph
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+CombatToLost "CombatToLost"
+:------------------------------------------------------------------------------------------------:
+	-> 00159FFB "{Sonar Beep}<Sneaky Beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 19 ;sneak
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+LostToNormal "LostToNormal"
+:------------------------------------------------------------------------------------------------:
+	-> 00159FFD "{Happy Beep}<Relieved beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 3 ;happy
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+LostToCombat "LostToCombat"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A004 "{Angry Beep}<Aggressive beeping>"
+	
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 8 ;angry
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+AlertIdle "AlertIdle"
+:------------------------------------------------------------------------------------------------:
+	-> 00159FFE "{Alert Beep}<Alert beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 18 ;seek
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+LostIdle "LostIdle"
+:------------------------------------------------------------------------------------------------:
+	-> 0015A00C "{Curious Beep}<Curious beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 14 ;curious
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:
+NormalToAlertResponse "NormalToAlertResponse"
+:------------------------------------------------------------------------------------------------:
+	-> 00159FFC "{Alert Beep}<Alert Beeping>"
+
+(DIALOGUE SCRIPT START)
+set EDEQuest.iDialogueIndex to 18 ;seek
+
+(DIALOGUE SCRIPT END)
+set EDEQuest.iDialogueIndex to 0
+
+
+:------------------------------------------------------------------------------------------------:

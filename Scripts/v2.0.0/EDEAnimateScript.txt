@@ -1,0 +1,104 @@
+scn EDEAnimateScript
+
+ref rCurrEdeRef
+int bHasFacePlate
+
+Begin Function { rCurrEdeRef }
+	set EDEQuest.bIsAnimating to 1
+	set bHasFacePlate to rCurrEdeRef.CreatureHasModel "AnimEDExFaceA.nif"
+	if (EDEQuest.bIsCloaked == 1) && (bHasFacePlate == 1)
+		rCurrEdeRef.ToggleCreatureModel "AnimEDExFaceA.nif" 0
+		rCurrEdeRef.Update3D
+		set bHasFacePlate to 0
+		Return
+	elseif (EDEQuest.bIsCloaked == 0) && (bHasFacePlate == 0)
+		rCurrEdeRef.ToggleCreatureModel "AnimEDExFaceA.nif" 1
+		rCurrEdeRef.Update3D
+		set bHasFacePlate to 1
+	endif
+	
+	if (GetUnconscious) || (GetDead)
+		SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExDeadFaceA"
+		SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExDeadFaceC"
+	elseif (IsInCombat)
+		SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExMadFaceA"
+		SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExMadFaceC"
+	elseif (IsSneaking)
+		SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceSneak"
+		SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\edecolorYellow"
+	elseif (rCurrEdeRef.GetHealthPercentage < 0.10)
+		SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExMadFaceC"
+		SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFacePanic"
+	else
+		if (EdEQuest.iDialogueIndex > 0) && (EdEQuest.iDialogueIndex <= 7) ; Colour
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExFaceC"
+		elseif (EdEQuest.iDialogueIndex == 1) 	; Confirmed
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceConfirm"
+		elseif (EdEQuest.iDialogueIndex == 2) 	; Bye Happy
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceGoodbyeHappy"
+		elseif (EdEQuest.iDialogueIndex == 3) || (rCurrEdeRef.IsIdlePlayingEx EDESpecialIdleHappy) ; Happy
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceHappy"
+		elseif (EdEQuest.iDialogueIndex == 4) 	; Helpfull
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceHelpfull"
+		elseif (EdEQuest.iDialogueIndex == 5) 	; Laugh
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceLaugh"
+		elseif (EdEQuest.iDialogueIndex == 6) || (rCurrEdeRef.IsIdlePlayingEx EDESpecialIdleHappy) ; Triumph
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceTriumph"
+		elseif (EdEQuest.iDialogueIndex == 7) 	; Yes
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceYes"
+
+		elseif (EdEQuest.iDialogueIndex > 7) && (EdEQuest.iDialogueIndex <= 10) ; Colour
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExMadFaceC"
+		elseif (EdEQuest.iDialogueIndex == 8) || (rCurrEdeRef.IsIdlePlayingEx EDESpecialIdleAngry) ; Anger
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExMadFaceA"
+		elseif (EdEQuest.iDialogueIndex == 9) 	; No
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceNo"
+		elseif (EdEQuest.iDialogueIndex == 10) || (rCurrEdeRef.IsIdlePlayingEx EDESpecialIdleScared) ; Panic
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFacePanic"
+
+		elseif (EdEQuest.iDialogueIndex > 10) && (EdEQuest.iDialogueIndex <= 20) ; Colour
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\edecolorYellow"
+		elseif (EDEQuest.iDialogueIndex == 11) 	; Idle
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExFaceA"
+		elseif (EdEQuest.iDialogueIndex == 12) 	; Combat
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceCombat"
+		elseif (EdEQuest.iDialogueIndex == 13) 	; Craft
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceCraft"
+		elseif (EdEQuest.iDialogueIndex == 14) 	; Curious
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceCurious"
+		elseif (EdEQuest.iDialogueIndex == 15) 	; Follow
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceFollow"
+		elseif (EdEQuest.iDialogueIndex == 16) 	; Holotape
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceHolotape"
+		elseif (EdEQuest.iDialogueIndex == 17) 	; Radio
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceRadio"
+		elseif (EdEQuest.iDialogueIndex == 18) 	; Seek
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceSeek"
+		elseif (EdEQuest.iDialogueIndex == 19) 	; Sneak
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceSneak"
+		elseif (EdEQuest.iDialogueIndex == 20) 	; Static
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceStatic"
+
+		elseif (EdEQuest.iDialogueIndex > 20) && (EdEQuest.iDialogueIndex <= 23) ; Colour
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\edecolorBlue"
+		elseif (EdEQuest.iDialogueIndex == 21)	; Fail
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceFail"
+		elseif (EdEQuest.iDialogueIndex == 22) 	; Bye Sad
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceGoodbyeSad"
+		elseif (EdEQuest.iDialogueIndex == 23) || (rCurrEdeRef.IsIdlePlayingEx EDESpecialIdleSad) 	; Sad
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceSad"
+
+		elseif (EdEQuest.iDialogueIndex > 23) && (EdEQuest.iDialogueIndex <= 25) ; Colour
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\AnimEDExDeadFaceC"
+		elseif (EdEQuest.iDialogueIndex == 24) 	; Dead
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExDeadFaceA"
+		elseif (EdEQuest.iDialogueIndex == 24) 	; None
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\EdEFaceNone"
+	
+		else 	; Idle
+			SwapTexture rCurrEdeRef FaceA "AnimEDExFaceA\AnimEDExFaceA"
+			SwapTexture rCurrEdeRef FaceC "AnimEDExFaceA\edecolorYellow"
+		endif
+	endif
+	set EDEQuest.bIsAnimating to 0
+End
