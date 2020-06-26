@@ -1,10 +1,11 @@
 scn EDEQuestScript
 
-ref rEdeRef					; Current EDE
-int bIsAnimating			; Check if Already Animating
-int bStealthModuleFound		; Toggles "Found Panel" Dialogue Option
+ref rEdeRef						; Current EDE
+int bIsAnimating				; Check if Already Animating
+int bStealthModuleFound	; Toggles "Found Panel" Dialogue Option
 int bStealthModuleActive	; Does EDE have an Active Stealth Module
-int bIsCloaked				; Toggle cloaked
+int bIsCloaked					; Toggle cloaked
+int iDialogueIndex				; Get Value from Dialogue Scripts, Used to Check what Animation need to be played
 int iOnceOnly
 
 Begin GameMode
@@ -13,8 +14,9 @@ Begin GameMode
 		set bStealthModuleFound to 0
 		set bStealthModuleActive to 0
 		set bIsCloaked to 0
+		set iDialogueIndex to 0
 		set iOnceOnly to 1
+		Print "EDE Enhanced is Loaded"
 	endif
-	Print "EDE Enhanced is Loaded"
-	StopQuest EDEQuest
+	; StopQuest EDEQuest
 End
