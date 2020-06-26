@@ -18,5 +18,5 @@ Begin GameMode
 		set iOnceOnly to 1
 	endif
 	Print "EDE Enhanced is Loaded"
-	StopQuest EDEQuest
+	; StopQuest EDEQuest
 End

@@ -1,0 +1,140 @@
+scn EDEScript
+
+int Waiting						; 0 = Not waiting, 1 = Waiting
+int CombatStyleMelee			; 0 = Not melee, 1= Melee
+int CombatStyleRanged			; 0 = Not ranged, 1 = Ranged
+int IsFollowingDefault			; 0 = Not following default, 1 = Is following default range
+int IsFollowingLong				; 0 = Not following long, 1 = Is following long
+int FollowerSwitchAggressive	; 0 = Passive (wait on player), 1 = Aggressive (attack when see enemies)
+float fTimer
+int iLogsPlayed					; Count of the number of logs played
+int iRadioConversation			;
+ref rLogBlocker					; reference to stop the player from getting logs in the same cell
+int bSameCell					; Set to 1 if the player is in the same cell as a log blocker.
+ref rTempEDERef					; Var to store current ED-E Ref
+int bHasFacePlate				; Animated Face plate
+
+Begin OnLoad
+
+	if (This != EDEQuest.rEdeRef)
+		if (This == EDE3Ref)
+			set EDEQuest.rEdeRef to EDE3Ref
+		elseif (This == EDE2Ref)
+			set EDEQuest.rEdeRef to EDE2Ref
+		else
+			set EDEQuest.rEdeRef to EDE1Ref
+		endif
+	endif
+	set rTempEDERef to EDEQuest.rEdeRef
+	set bHasFacePlate to CreatureHasModel "AnimEDExFaceA.nif"
+End
+
+;-- INGAME -------------------------------------------------------------------------------------
+Begin GameMode
+	if (iRadioConversation == 1) && (This == EDE1Ref)
+		EDERadioREF.Enable
+		SayTo Player EDEStatic
+		set iRadioConversation to 2
+	endif
+	
+	if (rLogBlocker != 0 && bSameCell == 0)
+		if (rLogBlocker.GetInSameCell Player)
+			set bSameCell to 1
+		endif
+	elseif bSameCell == 1 && rLogBlocker.GetInSameCell Player == 0
+		set bSameCell to 0
+	endif
+	
+	if (Player.isSneaking == 1) && (IsInCombat == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 0)
+		AddSpell StealthBoyInvisibilitySpell
+		set EDEQuest.bIsCloaked to 1
+	elseif (Player.isSneaking == 0) && (EDEQuest.bStealthModuleActive == 1) && (EDEQuest.bIsCloaked == 1)
+		RemoveSpell StealthBoyInvisibilitySpell
+		set EDEQuest.bIsCloaked to 0
+	elseif (IsInCombat) && (EDEQuest.bIsCloaked == 1)
+		RemoveSpell StealthBoyInvisibilitySpell
+		set EDEQuest.bIsCloaked to 0
+	endif
+
+	if (EDEQuest.bIsCloaked == 1) && (bHasFacePlate == 1)
+		ToggleCreatureModel "AnimEDExFaceA.nif" 0
+		Update3D
+		set bHasFacePlate to 0
+	elseif (EDEQuest.bIsCloaked == 0) && (bHasFacePlate == 0)
+		ToggleCreatureModel "AnimEDExFaceA.nif" 1
+		Update3D
+		set bHasFacePlate to 1
+	endif
+	
+	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)
+		Call EDEAnimateScript rTempEDERef
+	endif
+	
+	if (EDEQuest.iOnceOnly == 1)
+		set fTimer to GetSecondsPassed + fTimer
+		if (fTimer >= 5)
+			set EDEQuest.iOnceOnly to 2
+			setrestrained 0
+			resetai
+		endif
+	endif
+End
+
+
+Begin SayToDone EDEStatic
+	StartConversation Player EDERadioConversation
+End
+
+
+Begin MenuMode 1009
+	if (rTempEDERef != 0) && (EDEQuest.bIsAnimating == 0)
+		Call EDEAnimateScript rTempEDERef
+	endif
+End
+
+;-- DEATH --------------------------------------------------------------------------------------
+Begin OnDeath
+	if (VNPCFollowers.bEDEHired == 1)
+		set VNPCFollowers.nCurrentFollowers to VNPCFollowers.nCurrentFollowers - 1;
+		set vNPCFollowers.bCritterinParty to 0
+		if (VNPCFollowers.nCurrentFollowers == 0)
+			set VNPCFollowers.bPlayerHasFollower to 0
+		endif
+		set VNPCFollowers.bEDEHired to 0
+		ShowMessage FollowerMessageDeadEDE
+		player.RemovePerk EnhancedSensors
+		ShowMessage FollowerMessagePerkEDERemove
+	endif
+	set VNPCFollowers.bEDEDead to 1
+	if (GetQuestCompleted vDialogueEDE == 0)
+		SetStage vDialogueEDE 100
+	endif
+	if (EDEQuest.bStealthModuleActive == 1)
+		RemoveSpell StealthBoyInvisibilitySpell
+		set EDEQuest.bIsCloaked to 0
+	endif
+End
+
+;-- COMBAT -------------------------------------------------------------------------------------
+Begin OnStartCombat
+	if (EDEQuest.bIsCloaked == 1)
+		RemoveSpell StealthBoyInvisibilitySpell
+		set EDEQuest.bIsCloaked to 0
+	endif
+End
+
+Begin OnCombatEnd
+	if (GetPlayerTeammate == 1)
+		resethealth
+		restoreav Perceptioncondition 100
+		restoreav Endurancecondition 100
+		restoreav leftattackcondition 100
+		restoreav leftmobilitycondition 100
+		restoreav rightattackcondition 100
+		restoreav rightmobilitycondition 100
+		if (Player.isSneaking == 1) && (EDEQuest.bStealthModuleActive == 1)
+			AddSpell StealthBoyInvisibilitySpell
+			set EDEQuest.bIsCloaked to 1
+		endif
+	endif
+End
